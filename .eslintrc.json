@@ -14,7 +14,7 @@
   "overrides": [
     {
       "extends": ["plugin:testing-library/react", "plugin:jest/recommended"],
-      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "files": ["**/?(*.)+(test).[jt]s?(x)"],
       "rules": {
         "testing-library/no-render-in-setup": [
           "error",
