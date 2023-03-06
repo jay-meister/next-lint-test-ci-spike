@@ -1,3 +1,57 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "unused-imports",
+    "simple-import-sort",
+    "import",
+    "sort-keys-fix"
+  ],
+  "overrides": [
+    {
+      "extends": ["plugin:testing-library/react", "plugin:jest/recommended"],
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "rules": {
+        "testing-library/no-render-in-setup": [
+          "error",
+          { "allowTestingFrameworkSetupHook": "beforeEach" }
+        ]
+      }
+    },
+    {
+      "files": ["./*.[jt]s"],
+      "plugins": ["sort-keys-fix"],
+      "rules": {
+        "sort-keys-fix/sort-keys-fix": "error"
+      }
+    }
+  ],
+  "rules": {
+    "eqeqeq": ["error", "always"],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
+    "react/prop-types": "error",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "multiline": "last",
+        "reservedFirst": true,
+        "shorthandFirst": true
+      }
+    ],
+    "tailwindcss/classnames-order": "error",
+    "tailwindcss/enforces-negative-arbitrary-values": "error",
+    "tailwindcss/enforces-shorthand": "error",
+    "tailwindcss/no-custom-classname": "error",
+    "sort-keys-fix/sort-keys-fix": "warn"
+  }
 }
